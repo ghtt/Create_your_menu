@@ -1,17 +1,11 @@
-package com.akrasnoyarov.createyourmenu
+package com.akrasnoyarov.createyourmenu.ui
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
-import com.akrasnoyarov.createyourmenu.api.MealDbService
-import com.akrasnoyarov.createyourmenu.api.Meals
-import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
-import com.akrasnoyarov.createyourmenu.utils.RecipeConverter
-import kotlinx.coroutines.*
+import androidx.fragment.app.Fragment
+import com.akrasnoyarov.createyourmenu.ui.recipe.RecipeFragment
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : SingleFragmentActivity() {
+
+    override fun createFragment(): Fragment {
+        return RecipeFragment.newInstance()
     }
 }
