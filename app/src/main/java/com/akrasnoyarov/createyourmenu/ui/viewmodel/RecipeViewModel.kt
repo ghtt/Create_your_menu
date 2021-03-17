@@ -12,6 +12,10 @@ class RecipeViewModel(private val repository: RecipeRepository) : ViewModel() {
     private var _recipe = MutableLiveData<Recipe>()
     val recipe: LiveData<Recipe> get() = _recipe
 
+    init {
+        getRecipe()
+    }
+
     fun getRecipe() {
         viewModelScope.launch {
             _recipe.postValue(repository.getRecipe())

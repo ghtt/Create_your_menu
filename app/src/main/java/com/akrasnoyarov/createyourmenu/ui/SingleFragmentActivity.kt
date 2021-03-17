@@ -18,7 +18,6 @@ abstract class SingleFragmentActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .add(R.id.fragment_container, createFragment())
-                .addToBackStack(null)
                 .commit()
         }
     }
