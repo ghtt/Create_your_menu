@@ -79,7 +79,9 @@ class RecipeConverter {
             )
             val list = mutableListOf<Ingredient>()
             var index = 0
-            while (!ingredientListFromItem.get(index).isNullOrEmpty()) {
+            while (!ingredientListFromItem.get(index).isNullOrEmpty()
+                && index < ingredientListFromItem.size
+            ) {
                 list.add(
                     Ingredient(
                         ingredientListFromItem.get(index)!!,
