@@ -39,6 +39,7 @@ class RecipeFragment : Fragment() {
             Glide.with(requireContext())
                 .load(it.imageUrl)
                 .into(binding.recipeImageView)
+            // TODO Create recyclerview with adapter and update ingredients
             binding.nameTextView.text = it.name
             binding.stepsTextView.text = it.steps
         }
