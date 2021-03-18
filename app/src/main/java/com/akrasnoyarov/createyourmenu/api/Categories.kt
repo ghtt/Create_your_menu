@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class Categories(
 
 	@field:SerializedName("categories")
-	val categories: List<CategoriesItem?>? = null
+	val values: List<CategoriesItem?>? = null
 )
 
 data class CategoriesItem(
