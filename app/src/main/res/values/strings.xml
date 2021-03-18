@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Create your menu</string>
     <string name="ingredients_title">Inrgedients</string>
+    <string name="steps_title">Steps</string>
 </resources>
