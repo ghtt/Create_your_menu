@@ -1,6 +1,5 @@
-package com.akrasnoyarov.createyourmenu.utils
+package com.akrasnoyarov.createyourmenu.utils.converters
 
-import android.util.Log
 import com.akrasnoyarov.createyourmenu.api.Meals
 import com.akrasnoyarov.createyourmenu.api.MealsItem
 import com.akrasnoyarov.createyourmenu.models.entiteis.Ingredient

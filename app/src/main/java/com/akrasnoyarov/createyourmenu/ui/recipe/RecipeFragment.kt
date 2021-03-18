@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.akrasnoyarov.createyourmenu.databinding.FragmentRecipeBinding
-import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
-import com.akrasnoyarov.createyourmenu.models.entiteis.RecipeRepository
+import com.akrasnoyarov.createyourmenu.models.RecipeRepository
 import com.akrasnoyarov.createyourmenu.ui.ingredients.IngredientsViewAdapter
 import com.akrasnoyarov.createyourmenu.ui.viewmodel.RecipeViewModel
 import com.akrasnoyarov.createyourmenu.ui.viewmodel.RecipeViewModelFactory
