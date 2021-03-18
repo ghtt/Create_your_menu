@@ -2,7 +2,7 @@ package com.akrasnoyarov.createyourmenu.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.akrasnoyarov.createyourmenu.models.entiteis.RecipeRepository
+import com.akrasnoyarov.createyourmenu.models.RecipeRepository
 import java.lang.IllegalArgumentException
 
 class RecipeViewModelFactory(private val repository: RecipeRepository) : ViewModelProvider.Factory {
