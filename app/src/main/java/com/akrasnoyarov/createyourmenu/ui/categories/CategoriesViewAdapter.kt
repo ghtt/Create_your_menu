@@ -12,7 +12,7 @@ class CategoriesViewAdapter(private val categories: List<Category>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CategoriesViewAdapter.CategoryViewHolder {
+    ): CategoryViewHolder {
         val binding = CategoryItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -21,7 +21,7 @@ class CategoriesViewAdapter(private val categories: List<Category>) :
         return CategoryViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoriesViewAdapter.CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.onBind(categories[position])
     }
 
