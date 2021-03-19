@@ -1,7 +1,7 @@
 package com.akrasnoyarov.createyourmenu.utils.converters
 
 import com.akrasnoyarov.createyourmenu.api.CategoriesItem
-import com.akrasnoyarov.createyourmenu.models.entiteis.Category
+import com.akrasnoyarov.createyourmenu.models.entities.Category
 
 class CategoryConverter {
     companion object {

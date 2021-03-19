@@ -2,9 +2,9 @@ package com.akrasnoyarov.createyourmenu.models
 
 import android.content.Context
 import com.akrasnoyarov.createyourmenu.api.MealDbService
-import com.akrasnoyarov.createyourmenu.models.entiteis.Category
-import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
-import com.akrasnoyarov.createyourmenu.models.entiteis.RecipePreview
+import com.akrasnoyarov.createyourmenu.models.entities.Category
+import com.akrasnoyarov.createyourmenu.models.entities.Recipe
+import com.akrasnoyarov.createyourmenu.models.entities.RecipePreview
 import com.akrasnoyarov.createyourmenu.utils.converters.CategoryConverter
 import com.akrasnoyarov.createyourmenu.utils.converters.RecipeConverter
 

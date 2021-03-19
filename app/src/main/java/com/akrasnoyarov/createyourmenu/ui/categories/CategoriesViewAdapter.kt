@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.akrasnoyarov.createyourmenu.databinding.CategoryItemBinding
-import com.akrasnoyarov.createyourmenu.models.entiteis.Category
+import com.akrasnoyarov.createyourmenu.models.entities.Category
 import com.bumptech.glide.Glide
 
 class CategoriesViewAdapter(private val categories: List<Category>) :
@@ -12,7 +12,7 @@ class CategoriesViewAdapter(private val categories: List<Category>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CategoriesViewAdapter.CategoryViewHolder {
+    ): CategoryViewHolder {
         val binding = CategoryItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -21,7 +21,7 @@ class CategoriesViewAdapter(private val categories: List<Category>) :
         return CategoryViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: CategoriesViewAdapter.CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.onBind(categories[position])
     }
 

@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
+import com.akrasnoyarov.createyourmenu.models.entities.Recipe
 import com.akrasnoyarov.createyourmenu.models.RecipeRepository
-import com.akrasnoyarov.createyourmenu.models.entiteis.Category
-import com.akrasnoyarov.createyourmenu.models.entiteis.RecipePreview
+import com.akrasnoyarov.createyourmenu.models.entities.Category
+import com.akrasnoyarov.createyourmenu.models.entities.RecipePreview
 import kotlinx.coroutines.launch
 
 class RecipeViewModel(private val repository: RecipeRepository) : ViewModel() {
@@ -19,11 +19,6 @@ class RecipeViewModel(private val repository: RecipeRepository) : ViewModel() {
 
     private var _recipes = MutableLiveData<List<RecipePreview>>()
     val recipes: LiveData<List<RecipePreview>> get() = _recipes
-
-    init {
-        getRecipe()
-        getCategories()
-    }
 
     fun getRecipe() {
         viewModelScope.launch {
