@@ -3,10 +3,10 @@ package com.akrasnoyarov.createyourmenu.utils.converters
 import com.akrasnoyarov.createyourmenu.api.Item
 import com.akrasnoyarov.createyourmenu.api.Meals
 import com.akrasnoyarov.createyourmenu.api.MealsItem
-import com.akrasnoyarov.createyourmenu.models.entiteis.Ingredient
-import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
-import com.akrasnoyarov.createyourmenu.models.entiteis.RecipePreview
-import com.akrasnoyarov.createyourmenu.models.entiteis.Step
+import com.akrasnoyarov.createyourmenu.models.entities.Ingredient
+import com.akrasnoyarov.createyourmenu.models.entities.Recipe
+import com.akrasnoyarov.createyourmenu.models.entities.RecipePreview
+import com.akrasnoyarov.createyourmenu.models.entities.Step
 
 
 class RecipeConverter {

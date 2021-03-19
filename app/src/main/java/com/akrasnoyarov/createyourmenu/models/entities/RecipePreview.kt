@@ -1,4 +1,4 @@
-package com.akrasnoyarov.createyourmenu.models.entiteis
+package com.akrasnoyarov.createyourmenu.models.entities
 
 data class RecipePreview(
     val imageUrl: String,

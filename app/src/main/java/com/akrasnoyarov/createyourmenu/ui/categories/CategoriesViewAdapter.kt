@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.akrasnoyarov.createyourmenu.databinding.CategoryItemBinding
-import com.akrasnoyarov.createyourmenu.models.entiteis.Category
+import com.akrasnoyarov.createyourmenu.models.entities.Category
 import com.bumptech.glide.Glide
 
 class CategoriesViewAdapter(private val categories: List<Category>) :

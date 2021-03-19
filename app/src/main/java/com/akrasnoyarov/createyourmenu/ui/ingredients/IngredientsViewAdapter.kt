@@ -1,11 +1,10 @@
 package com.akrasnoyarov.createyourmenu.ui.ingredients
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.akrasnoyarov.createyourmenu.databinding.IngredientItemBinding
-import com.akrasnoyarov.createyourmenu.models.entiteis.Ingredient
+import com.akrasnoyarov.createyourmenu.models.entities.Ingredient
 
 class IngredientsViewAdapter(private var ingredients: List<Ingredient>) :
     RecyclerView.Adapter<IngredientsViewAdapter.IngredientsViewHolder>() {
