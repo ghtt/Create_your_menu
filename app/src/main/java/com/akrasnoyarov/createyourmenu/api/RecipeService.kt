@@ -13,4 +13,7 @@ interface RecipeService {
 
     @GET("filter.php")
     suspend fun getRecipesByCategory(@Query("c") categoryName: String): MealsByCategory
+
+    @GET("lookup.php")
+    suspend fun getRecipeById(@Query("i") id: Long): Meals
 }

@@ -14,6 +14,11 @@ class RecipeRepository(private val context: Context) {
         return RecipeConverter.convertRecipeToEntity(meals)
     }
 
+    suspend fun getRecipeById(id: Long): Recipe {
+        val meals = MealDbService.recipesApi.getRecipeById(id)
+        return RecipeConverter.convertRecipeToEntity(meals)
+    }
+
     suspend fun getCategories(): List<Category>? {
         val categories = MealDbService.recipesApi.getCategories()
         return categories.values?.map { CategoryConverter.convertCategoryToEntity(it!!) }

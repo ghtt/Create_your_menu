@@ -26,6 +26,12 @@ class RecipeViewModel(private val repository: RecipeRepository) : ViewModel() {
         }
     }
 
+    fun getRecipeById(id: Long) {
+        viewModelScope.launch {
+            _recipe.postValue(repository.getRecipeById(id))
+        }
+    }
+
     fun getCategories() {
         viewModelScope.launch {
             _categories.postValue(repository.getCategories())
