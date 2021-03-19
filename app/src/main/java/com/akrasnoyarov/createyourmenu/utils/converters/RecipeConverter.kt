@@ -1,9 +1,11 @@
 package com.akrasnoyarov.createyourmenu.utils.converters
 
+import com.akrasnoyarov.createyourmenu.api.Item
 import com.akrasnoyarov.createyourmenu.api.Meals
 import com.akrasnoyarov.createyourmenu.api.MealsItem
 import com.akrasnoyarov.createyourmenu.models.entiteis.Ingredient
 import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
+import com.akrasnoyarov.createyourmenu.models.entiteis.RecipePreview
 import com.akrasnoyarov.createyourmenu.models.entiteis.Step
 
 
@@ -17,6 +19,14 @@ class RecipeConverter {
                 steps = item.strInstructions!!,
                 id = item.idMeal?.toLong()!!,
                 ingredients = getIngredients(item)
+            )
+        }
+
+        fun convertRecipePreviewToEntity(recipeItem: Item): RecipePreview {
+            return RecipePreview(
+                imageUrl = recipeItem.strMealThumb!!,
+                name = recipeItem.strMeal!!,
+                id = recipeItem.idMeal!!.toLong()
             )
         }
 
