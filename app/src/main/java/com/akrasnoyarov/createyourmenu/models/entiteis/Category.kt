@@ -1,7 +1,8 @@
 package com.akrasnoyarov.createyourmenu.models.entiteis
 
 data class Category(
-    val imageUrl: String,
+    val id: Long,
     val name: String,
-    val id: Long
+    val imageUrl: String,
+    val description: String
 )
