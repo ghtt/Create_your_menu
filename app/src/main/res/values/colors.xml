@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="name_background">#88FF8A50</color>
+    <color name="white_background">#C6FFFFFF</color>
     <color name="ingredients_background">#E0F7FA</color>
 </resources>
