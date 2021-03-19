@@ -4,9 +4,9 @@ import android.content.Context
 import com.akrasnoyarov.createyourmenu.api.MealDbService
 import com.akrasnoyarov.createyourmenu.models.entiteis.Category
 import com.akrasnoyarov.createyourmenu.models.entiteis.Recipe
+import com.akrasnoyarov.createyourmenu.models.entiteis.RecipePreview
 import com.akrasnoyarov.createyourmenu.utils.converters.CategoryConverter
 import com.akrasnoyarov.createyourmenu.utils.converters.RecipeConverter
-import okhttp3.logging.HttpLoggingInterceptor
 
 class RecipeRepository(private val context: Context) {
     suspend fun getRecipe(): Recipe {
@@ -17,5 +17,10 @@ class RecipeRepository(private val context: Context) {
     suspend fun getCategories(): List<Category>? {
         val categories = MealDbService.recipesApi.getCategories()
         return categories.values?.map { CategoryConverter.convertCategoryToEntity(it!!) }
+    }
+
+    suspend fun getRecipesByCategory(categoryName: String): List<RecipePreview>? {
+        val recipes = MealDbService.recipesApi.getRecipesByCategory(categoryName)
+        return recipes.items?.map { RecipeConverter.convertRecipePreviewToEntity(it!!) }
     }
 }
