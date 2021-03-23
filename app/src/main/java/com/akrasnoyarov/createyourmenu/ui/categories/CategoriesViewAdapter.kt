@@ -1,14 +1,21 @@
 package com.akrasnoyarov.createyourmenu.ui.categories
 
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.akrasnoyarov.createyourmenu.databinding.CategoryItemBinding
 import com.akrasnoyarov.createyourmenu.models.entities.Category
 import com.bumptech.glide.Glide
 
-class CategoriesViewAdapter(private val categories: List<Category>) :
+class CategoriesViewAdapter(
+    private val onCategoryClicked: (String) -> Unit
+) :
     RecyclerView.Adapter<CategoriesViewAdapter.CategoryViewHolder>() {
+
+    private var categories: List<Category> = emptyList()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,7 +34,12 @@ class CategoriesViewAdapter(private val categories: List<Category>) :
 
     override fun getItemCount() = categories.size
 
-    class CategoryViewHolder(val binding: CategoryItemBinding) :
+    fun submitCategoriesList(newCategories: List<Category>) {
+        this.categories = newCategories
+        notifyDataSetChanged()
+    }
+
+    inner class CategoryViewHolder(val binding: CategoryItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(category: Category) {
             binding.apply {
@@ -36,8 +48,11 @@ class CategoriesViewAdapter(private val categories: List<Category>) :
                     .into(categoryImage)
                 categoryDescription.text = category.description
                 categoryTitleTextview.text = category.name
+
+            }
+            binding.root.setOnClickListener {
+                onCategoryClicked(category.name)
             }
         }
     }
-
 }

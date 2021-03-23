@@ -8,9 +8,7 @@ import com.akrasnoyarov.createyourmenu.ui.recipe.RecipesListFragment
 class MainActivity : SingleFragmentActivity() {
 
     override fun createFragment(): Fragment {
-//        return RecipeFragment.newInstance()
-//        return CategoriesFragment.newInstance()
-        return RecipesListFragment.newInstance("Chicken")
+        return CategoriesFragment.newInstance()
     }
 
 }

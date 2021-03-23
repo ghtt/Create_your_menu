@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -74,7 +75,4 @@ dependencies {
 
     // Feature module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
-
-    // Jetpack Compose Integration
-    implementation "androidx.navigation:navigation-compose:1.0.0-alpha09"
 }
