@@ -1,12 +1,13 @@
 package com.akrasnoyarov.createyourmenu.ui.recipe
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.akrasnoyarov.createyourmenu.databinding.FragmentRecipesListBinding
 import com.akrasnoyarov.createyourmenu.models.RecipeRepository
@@ -21,6 +22,7 @@ class RecipesListFragment : Fragment() {
     private lateinit var viewModel: RecipeViewModel
     private lateinit var viewModelFactory: RecipeViewModelFactory
     private lateinit var recipesAdapter: RecipesListViewAdapter
+    private val args: RecipesListFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,28 +32,34 @@ class RecipesListFragment : Fragment() {
         _binding = FragmentRecipesListBinding.inflate(inflater, container, false)
 
         initUI()
+        initViewModel()
 
+        val categoryName = args.categoryName
+        viewModel.getRecipesByCategory(categoryName)
+
+        return binding.root
+    }
+
+    private fun initUI() {
+        recipesAdapter = RecipesListViewAdapter(::onRecipeClicked)
+        binding.recipesListRecyclerView.apply {
+            adapter = recipesAdapter
+            layoutManager = GridLayoutManager(activity, 2)
+        }
+    }
+
+    private fun initViewModel() {
         viewModelFactory = RecipeViewModelFactory(RecipeRepository(requireContext()))
         viewModel = ViewModelProvider(this, viewModelFactory).get(RecipeViewModel::class.java)
         viewModel.recipes.observe(viewLifecycleOwner) {
             recipesAdapter.submitRecipesList(it)
         }
-
-        arguments?.run {
-            val category = this.getString(ARG_CATEGORY)
-            viewModel.getRecipesByCategory(category!!)
-        }
-
-        return binding.root
     }
 
-
-    private fun initUI() {
-        recipesAdapter = RecipesListViewAdapter()
-        binding.recipesListRecyclerView.apply {
-            adapter = recipesAdapter
-            layoutManager = GridLayoutManager(activity, 2)
-        }
+    private fun onRecipeClicked(recipeId: Long) {
+        val action = RecipesListFragmentDirections
+            .actionRecipesListFragmentToRecipeFragment(recipeId)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

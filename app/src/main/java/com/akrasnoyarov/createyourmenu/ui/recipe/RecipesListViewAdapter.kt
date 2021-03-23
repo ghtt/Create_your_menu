@@ -1,6 +1,5 @@
 package com.akrasnoyarov.createyourmenu.ui.recipe
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,7 +7,8 @@ import com.akrasnoyarov.createyourmenu.databinding.RecipeItemBinding
 import com.akrasnoyarov.createyourmenu.models.entities.RecipePreview
 import com.bumptech.glide.Glide
 
-class RecipesListViewAdapter : RecyclerView.Adapter<RecipesListViewAdapter.RecipeViewHolder>() {
+class RecipesListViewAdapter(private val onRecipeClicked: (Long) -> Unit) :
+    RecyclerView.Adapter<RecipesListViewAdapter.RecipeViewHolder>() {
     private var recipes: List<RecipePreview> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -39,6 +39,7 @@ class RecipesListViewAdapter : RecyclerView.Adapter<RecipesListViewAdapter.Recip
                 .load(recipe.imageUrl)
                 .into(binding.recipeImageView)
             binding.recipeTextView.text = recipe.name
+            binding.root.setOnClickListener { onRecipeClicked(recipe.id) }
         }
     }
 

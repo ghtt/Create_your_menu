@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.akrasnoyarov.createyourmenu.databinding.FragmentRecipeBinding
 import com.akrasnoyarov.createyourmenu.models.RecipeRepository
@@ -17,6 +18,7 @@ import com.bumptech.glide.Glide
 class RecipeFragment : Fragment() {
     private var _binding: FragmentRecipeBinding? = null
     private val binding: FragmentRecipeBinding get() = _binding!!
+    private val args: RecipeFragmentArgs by navArgs()
 
     private lateinit var viewModel: RecipeViewModel
     private lateinit var viewModelFactory: RecipeViewModelFactory
@@ -35,6 +37,10 @@ class RecipeFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val recipeId = args.recipeId
+        viewModel.getRecipeById(recipeId)
+    }
 
     private fun initUI() {
         viewModel.recipe.observe(viewLifecycleOwner) {
